@@ -27,7 +27,6 @@ $app->get('/timeline', function () use ($app) {
   $screen_name = $app['config']['user_timeline']['screen_name'] ?: null;
   $limit = $app['config']['user_timeline']['limit'] ?: 10;
   $stream = $ttools->getUserTimeline(null, $screen_name, $limit);
-  
 
   return $app['twig']->render('timeline.html.twig', [
       'stream' => $stream,
