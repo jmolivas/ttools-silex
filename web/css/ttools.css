@@ -1,0 +1,14 @@
+.tweet {
+   clear:both;
+   position: relative; 
+}
+
+.user-profile_image, 
+.user-name-screen_name-text { 
+  float: left;
+  padding: 5px;
+}
+
+.user-name-screen_name-text {
+  width: 80%;
+}

@@ -1,0 +1,9 @@
+{
+    "require": {
+        "silex/silex": "~1.1",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "ttools/ttools": "dev-master",
+        "symfony/yaml": "~2.1",
+        "deralex/yaml-config-service-provider": "1.0.x-dev"
+    }
+}

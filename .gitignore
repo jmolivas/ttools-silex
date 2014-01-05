@@ -1,0 +1,7 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Silex
+vendor/
+config/settings.yml
