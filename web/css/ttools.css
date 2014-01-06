@@ -16,6 +16,7 @@ form textarea {
    clear:both;
    position: relative;
    line-height: 1.25em;
+   border-bottom: 1px solid #dedede;
 }
 
 .user-profile_image, 
