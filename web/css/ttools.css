@@ -1,6 +1,13 @@
+.content {
+    margin: 0 auto;
+    padding: .25em 2em;
+    line-height: 2em;
+}
+
 .tweet {
    clear:both;
-   position: relative; 
+   position: relative;
+   line-height: 1.25em;
 }
 
 .user-profile_image, 
