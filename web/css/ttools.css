@@ -1,7 +1,15 @@
-.content {
-    margin: 0 auto;
-    padding: .25em 2em;
-    line-height: 2em;
+body {
+  margin: 0 auto;
+  padding: .5em;
+  line-height: 2em;
+}
+
+form {
+  line-height: 3em;
+}
+
+form textarea {
+  width: 50%;
 }
 
 .tweet {

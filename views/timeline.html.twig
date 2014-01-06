@@ -1,10 +1,12 @@
 
 {% extends "layout.html.twig" %}
 
+{% block headline %}user timeline{% endblock %}
+
 {% block content %}
   <div class="stream">
   {% for tweet in stream %}
-  
+
     {% if tweet.retweeted %}
         {% set user = tweet.retweeted_status.user %}
         {% set text = tweet.retweeted_status.text %}

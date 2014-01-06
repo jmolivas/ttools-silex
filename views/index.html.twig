@@ -1,5 +1,30 @@
 {% extends "layout.html.twig" %}
 
+{% block headline %}home{% endblock %}
+
 {% block content %}
-    TwitterTools Silex demo
+<h2>Usage</h2>
+<ul>
+  <li>Copy `config/settings.yml.dist` to `config/settings.yml`</li>
+  <li>
+      Update using the keys of your twitter application.
+      <ul>
+        <li>consumer_key: application consumer key</li>
+        <li>consumer_secret: application consumer secret</li>
+        <li>access_token: user access token</li>
+        <li>access_token_secret: user access secret</li>
+      </ul>
+  </li>
+  <li>Get the keys you need to register your application at 
+    <a href="http://dev.twitter.com" target="_blank">http://dev.twitter.com</a>
+  </li>
+  <li>
+      Available routes
+      <ul>
+        <li><a href="/timeline">/timeline</a></li>
+        <li><a href="/compose">/compose</a></li>
+      </ul>
+  </li>
+</ul>
+
 {% endblock %}
