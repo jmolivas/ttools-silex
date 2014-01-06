@@ -14,19 +14,25 @@ require_once __DIR__.'/../vendor/autoload.php';
 * Get the keys you need to register your application at http://dev.twitter.com
 ***********************************************/
 
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\TranslationServiceProvider;
+use DerAlex\Silex\YamlConfigServiceProvider;
+use Symfony\Component\HttpFoundation\Request;
+
 $app = new Silex\Application();
 
-$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new FormServiceProvider());
 
-$app->register(new Silex\Provider\TwigServiceProvider(), [
+$app->register(new TwigServiceProvider(), [
     'twig.path' => __DIR__.'/../views',
 ]);
 
-$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+$app->register(new TranslationServiceProvider(), [
     'translator.messages' => array(),
-));
+]);
 
-$app->register(new DerAlex\Silex\YamlConfigServiceProvider(__DIR__ . '/../config/settings.yml'));
+$app->register(new YamlConfigServiceProvider(__DIR__ . '/../config/settings.yml'));
 
 $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig');
@@ -52,7 +58,7 @@ $app->get('/timeline', function () use ($app) {
 
 });
 
-$app->match('/compose', function (Symfony\Component\HttpFoundation\Request $request) use ($app) {
+$app->match('/compose', function (Request $request) use ($app) {
 
   $form = $app['form.factory']->createBuilder('form')
       ->add('text', 'textarea', [
