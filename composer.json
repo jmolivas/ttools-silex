@@ -3,7 +3,13 @@
         "silex/silex": "~1.1",
         "twig/twig": ">=1.8,<2.0-dev",
         "ttools/ttools": "dev-master",
-        "symfony/yaml": "~2.1",
-        "deralex/yaml-config-service-provider": "1.0.x-dev"
+        "symfony/yaml": "~2.3",
+        "deralex/yaml-config-service-provider": "1.0.x-dev",
+        "symfony/form": "~2.3",
+        "symfony/validator": "~2.3",
+        "symfony/config": "~2.3",
+        "symfony/translation": "~2.3",
+        "symfony/locale": "~2.3",
+        "symfony/twig-bridge": "~2.3"
     }
 }

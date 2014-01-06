@@ -16,9 +16,15 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Silex\Application();
 
+$app->register(new Silex\Provider\FormServiceProvider());
+
 $app->register(new Silex\Provider\TwigServiceProvider(), [
     'twig.path' => __DIR__.'/../views',
 ]);
+
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+    'translator.messages' => array(),
+));
 
 $app->register(new DerAlex\Silex\YamlConfigServiceProvider(__DIR__ . '/../config/settings.yml'));
 
@@ -44,6 +50,24 @@ $app->get('/timeline', function () use ($app) {
       'stream' => $stream,
   ]);
 
+});
+
+$app->match('/compose', function (Symfony\Component\HttpFoundation\Request $request) use ($app) {
+
+  $form = $app['form.factory']->createBuilder('form')
+      ->add('text', 'textarea', [
+          'attr' => [ 
+            'placeholder' => 'Compose new Tweet...'
+          ],
+          'label' => false
+        ])
+      ->add('image', 'file', [
+          'label' => false
+        ])
+      ->add('submit', 'submit')
+      ->getForm();
+
+  return $app['twig']->render('compose.html.twig', ['form' => $form->createView()]);
 });
 
 $app->run();
